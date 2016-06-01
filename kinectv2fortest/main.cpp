@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "Log.h"
 #include "Gaussian.h"
+#include "ExecuteSpaceFiltering.h"
 
 void doGaussian(cv::Mat &img){
 	Gaussian gaus;
@@ -28,8 +29,8 @@ void main() {
 			doGaussian(src_img);
 			cv::imshow("complete image", src_img);
 			cv::imwrite("comp.jpg", src_img);
-			auto key = cv::waitKey(200000);
-
+			cv::waitKey(20);
+			system("pause");
 	}
 	catch (exception& ex) {
 		cout << ex.what() << endl;
