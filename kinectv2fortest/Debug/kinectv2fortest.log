@@ -1,4 +1,4 @@
-﻿2016/06/01 11:57:44 にビルドを開始しました。
+﻿2016/06/01 13:31:30 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\momoko\Documents\Visual Studio 2013\Projects\GaussianFilterPractice\kinectv2fortest\kinectv2fortest.vcxproj" (Build ターゲット)。
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (kinectv2fortest.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
@@ -19,6 +19,9 @@
      1>c:\users\momoko\documents\visual studio 2013\projects\gaussianfilterpractice\kinectv2fortest\gaussian.h(58): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
      1>c:\users\momoko\documents\visual studio 2013\projects\gaussianfilterpractice\kinectv2fortest\gaussian.h(76): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
      1>c:\users\momoko\documents\visual studio 2013\projects\gaussianfilterpractice\kinectv2fortest\gaussian.h(85): warning C4244: '初期化中' : 'float' から 'unsigned char' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\gaussianfilterpractice\kinectv2fortest\executespacefiltering.h(148): warning C4244: '=' : 'double' から 'uchar' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\gaussianfilterpractice\kinectv2fortest\executespacefiltering.h(149): warning C4244: '=' : 'double' から 'uchar' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\gaussianfilterpractice\kinectv2fortest\executespacefiltering.h(150): warning C4244: '=' : 'double' から 'uchar' への変換です。データが失われる可能性があります。
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\momoko\Documents\Visual Studio 2013\Projects\GaussianFilterPractice\Debug\kinectv2_2.0.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\\lib\x86" /LIBPATH:C:\opencv300\build\x86\vc12\lib Kinect20.lib opencv_world300d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\momoko\Documents\Visual Studio 2013\Projects\GaussianFilterPractice\Debug\kinectv2_2.0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\momoko\Documents\Visual Studio 2013\Projects\GaussianFilterPractice\Debug\kinectv2_2.0.lib" /MACHINE:X86 Debug\main.obj
          Debug\stdafx.obj
@@ -27,4 +30,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:01.68
+経過時間 00:00:01.61
