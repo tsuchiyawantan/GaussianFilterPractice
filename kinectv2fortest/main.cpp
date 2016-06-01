@@ -19,18 +19,20 @@ void doGaussian(cv::Mat &img){
 		}
 }
 
+void doExecuteSpaceFiltering(cv::Mat &img){
+		ExecuteSpaceFiltering spaceFilter;
+		spaceFilter.executeSpaceFiltering(img);
+		cv::imshow("Space Filtering result", spaceFilter.image2);
+}
 
 void main() {
 	try {
-		Log log;
-		log.Initialize("log.txt");
-			cv::Mat src_img = cv::imread("lena.jpg", 0);
-			cv::imshow("src_img", src_img);
-			doGaussian(src_img);
-			cv::imshow("complete image", src_img);
-			cv::imwrite("comp.jpg", src_img);
-			cv::waitKey(20);
-			system("pause");
+
+		cv::Mat src_img = cv::imread("lena.jpg", 0);
+		cv::imshow("src_img", src_img);
+		doExecuteSpaceFiltering(src_img);
+		cv::waitKey(20);
+		system("pause");
 	}
 	catch (exception& ex) {
 		cout << ex.what() << endl;

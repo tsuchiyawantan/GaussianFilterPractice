@@ -16,7 +16,7 @@ private:
 public:
 	ExecuteSpaceFiltering(){}
 	~ExecuteSpaceFiltering(){}
-
+	cv::Mat image2;
 
 	//
 	// 空間フィルタリングを用いた画像処理の例
@@ -27,7 +27,7 @@ public:
 		//
 		double filter[9] = { 0.33333, 0, 0, 0, 0.33333, 0, 0, 0, 0.33333 };
 
-		cv::Mat image2 = cv::Mat(input1.size(), input1.type(), cvScalarAll(255));
+		image2 = cv::Mat(input1.size(), input1.type(), cvScalarAll(255));
 		int width = input1.cols;
 		int height = input1.rows;
 
