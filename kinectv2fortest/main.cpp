@@ -27,7 +27,6 @@ void doExecuteSpaceFiltering(cv::Mat &img){
 
 void main() {
 	try {
-
 		cv::Mat src_img = cv::imread("lena.jpg", 0);
 		cv::imshow("src_img", src_img);
 		doExecuteSpaceFiltering(src_img);
