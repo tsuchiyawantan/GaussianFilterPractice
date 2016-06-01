@@ -35,15 +35,6 @@ public:
 			}
 		}
 	}
-	boolean ifEdge(cv::Mat &image, int y, int x, vector<pair<int, int>> &neighbour) {
-		int count = 0;
-		for (int i = 0; i < neighbour.size(); i++) {
-			int dy = y + neighbour.at(i).first;
-			int dx = x + neighbour.at(i).second;
-			if (dy < 0 || dy >= image.rows || dx < 0 || dx >= image.cols) return true;
-		}
-		return false;
-	}
 
 	//
 	// 空間フィルタリングを用いた画像処理の例
@@ -68,16 +59,15 @@ public:
 		//
 		// 各スキャンラインごとに
 		//
-		for (i = 0, n1 = 0; i < height; i++) {
+		for (i = 0; i < height; i++) {
 
 			//
 			// 各画素ごとに
 			//
-			for (j = 0; j < width; j++, n1 += 3) {
+			for (j = 0; j < width; j++) {
 				double valueR = 0.0, valueG = 0.0, valueB = 0.0;
 				int y = i;
 				int x = j;
-				if (ifEdge(image2, y, x, neighbour)) continue;
 				//
 				// 左上の画素値を加算
 				//

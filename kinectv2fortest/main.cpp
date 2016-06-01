@@ -27,10 +27,10 @@ void doExecuteSpaceFiltering(cv::Mat &img){
 
 void main() {
 	try {
-		cv::Mat src_img = cv::imread("lena.jpg", 0);
+		cv::Mat src_img = cv::imread("lena.jpg", -1);
 		cv::imshow("src_img", src_img);
 		doExecuteSpaceFiltering(src_img);
-		cv::waitKey(20);
+		cv::waitKey(20000);
 		system("pause");
 	}
 	catch (exception& ex) {
