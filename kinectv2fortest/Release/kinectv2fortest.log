@@ -1,0 +1,69 @@
+﻿2016/05/17 21:59:08 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\momoko\Documents\Visual Studio 2013\Projects\kinectV2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\kinectv2fortest.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\\inc" /IC:\opencv300\build\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\kinectv2_2.0.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt kinectv2_2.0.cpp
+         kinectv2_2.0.cpp
+     1>kinectv2_2.0.cpp(1): warning C4627: '#include <iostream>': プリコンパイル済みヘッダーの使用を検索中にスキップされました
+                 ディレクティブを 'stdafx.h' に追加するか、プリコンパイル済みヘッダーをリビルドします
+     1>kinectv2_2.0.cpp(2): warning C4627: '#include <sstream>': プリコンパイル済みヘッダーの使用を検索中にスキップされました
+                 ディレクティブを 'stdafx.h' に追加するか、プリコンパイル済みヘッダーをリビルドします
+     1>kinectv2_2.0.cpp(3): warning C4627: '#include <time.h>': プリコンパイル済みヘッダーの使用を検索中にスキップされました
+                 ディレクティブを 'stdafx.h' に追加するか、プリコンパイル済みヘッダーをリビルドします
+     1>C:\opencv300\build\include\opencv2/core/mat.hpp(1965): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     1>C:\opencv300\build\include\opencv2/core/persistence.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     1>C:\opencv300\build\include\opencv2/core/utility.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\KinectControl.h(206): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Dot.h(33): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Dot.h(34): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Dot.h(43): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Dot.h(47): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Dot.h(50): warning C4018: '>' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Dot.h(97): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Dot.h(119): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Dot.h(167): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\NeonDesign.h(27): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\NeonDesign.h(28): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\NeonDesign.h(29): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\NeonDesign.h(30): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\NeonDesign.h(31): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\NeonDesign.h(32): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(28): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(29): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(30): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(40): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(48): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(49): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(51): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(55): warning C4244: '初期化中' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(56): warning C4244: '初期化中' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(68): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(69): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(71): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(75): warning C4244: '初期化中' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\Bezier.h(76): warning C4244: '初期化中' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(72): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(73): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(74): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(101): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(102): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(103): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(118): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(125): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(129): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(131): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(132): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>kinectv2_2.0.cpp(49): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\utility(157): warning C4244: '初期化中' : 'double' から 'int' への変換です。データが失われる可能性があります。
+                 c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(75) : コンパイルされたクラスの テンプレート のインスタンス化 'std::pair<int,int>::pair<double,double,void>(std::pair<double,double> &&)' の参照を確認してください
+                 c:\users\momoko\documents\visual studio 2013\projects\kinectv2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\ArmMovements.h(75) : コンパイルされたクラスの テンプレート のインスタンス化 'std::pair<int,int>::pair<double,double,void>(std::pair<double,double> &&)' の参照を確認してください
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\momoko\Documents\Visual Studio 2013\Projects\kinectV2_2.0-x86 - opencv3.0 - コピー\Release\kinectv2_2.0.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\\lib\x86" /LIBPATH:C:\opencv300\build\x86\vc12\lib Kinect20.lib opencv_world300.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\momoko\Documents\Visual Studio 2013\Projects\kinectV2_2.0-x86 - opencv3.0 - コピー\Release\kinectv2_2.0.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\momoko\Documents\Visual Studio 2013\Projects\kinectV2_2.0-x86 - opencv3.0 - コピー\Release\kinectv2_2.0.lib" /MACHINE:X86 /SAFESEH Release\kinectv2_2.0.obj
+         Release\stdafx.obj
+         コード生成しています。
+         コード生成が終了しました。
+         kinectv2fortest.vcxproj -> C:\Users\momoko\Documents\Visual Studio 2013\Projects\kinectV2_2.0-x86 - opencv3.0 - コピー\Release\kinectv2_2.0.exe
+     1>プロジェクト "C:\Users\momoko\Documents\Visual Studio 2013\Projects\kinectV2_2.0-x86 - opencv3.0 - コピー\kinectv2fortest\kinectv2fortest.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:02.03
