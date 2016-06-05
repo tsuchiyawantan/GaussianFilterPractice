@@ -6,6 +6,8 @@
 #include "Gaussian.h"
 #include "ExecuteSpaceFiltering.h"
 
+#define FILTERSIZE 9
+
 void doGaussian(cv::Mat &img){
 	Gaussian gaus;
 	gaus.createKernel(3);
@@ -20,7 +22,7 @@ void doGaussian(cv::Mat &img){
 }
 
 void doExecuteSpaceFiltering(cv::Mat &img){
-		ExecuteSpaceFiltering spaceFilter;
+		ExecuteSpaceFiltering spaceFilter(FILTERSIZE);
 		spaceFilter.executeSpaceFiltering(img);
 		cv::imshow("Space Filtering result", spaceFilter.image2);
 }

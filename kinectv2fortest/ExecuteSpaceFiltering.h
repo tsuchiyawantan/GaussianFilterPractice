@@ -14,7 +14,12 @@ using namespace std;
 class ExecuteSpaceFiltering{
 private:
 public:
-	ExecuteSpaceFiltering(){}
+	vector<double> filter;
+	ExecuteSpaceFiltering(double filter_size){
+		double filter_value = 1 / filter_size;
+		for (int i = 0; i < filter_size; i++)
+			filter.push_back(filter_value);
+	}
 	~ExecuteSpaceFiltering(){}
 	cv::Mat image2;
 
@@ -43,7 +48,7 @@ public:
 		//
 		// 空間フィルタリングを適用する配列
 		//
-		double filter[9] = { 0.33333, 0, 0, 0, 0.33333, 0, 0, 0, 0.33333 };
+		//double filter[9] = { 0.0625, 0.125, 0.0625, 0.125, 0.25, 0.125, 0.0625, 0.125, 0.0625 };
 		vector<pair<int, int>> neighbour;
 		image2 = cv::Mat(input1.size(), input1.type(), cvScalarAll(255));
 		int width = input1.cols;
@@ -51,11 +56,8 @@ public:
 
 		int i, j, n1, n2;
 
-		//
-		// 画像データのバイト数の定義
-		//
-		int n = width * height * 3;
 		createNeighbour(FILTERSIZE, neighbour);
+		
 		//
 		// 各スキャンラインごとに
 		//
@@ -74,9 +76,9 @@ public:
 				if (i > 0 && j > 0) {
 					y = i + neighbour.at(0).first;
 					x = j + neighbour.at(0).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter[0];
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter[0];
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter[0];
+					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(0);
+					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(0);
+					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(0);
 				}
 
 				//
@@ -85,9 +87,9 @@ public:
 				if (i > 0) {
 					y = i + neighbour.at(1).first;
 					x = j + neighbour.at(1).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter[1];
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter[1];
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter[1];
+					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(1);
+					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(1);
+					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(1);
 				}
 
 				//
@@ -96,9 +98,9 @@ public:
 				if (i > 0 && j < (width - 1)) {
 					y = i + neighbour.at(2).first;
 					x = j + neighbour.at(2).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter[2];
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter[2];
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter[2];
+					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(2);
+					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(2);
+					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(2);
 				}
 
 				//
@@ -107,9 +109,9 @@ public:
 				if (j > 0) {
 					y = i + neighbour.at(3).first;
 					x = j + neighbour.at(3).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter[3];
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter[3];
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter[3];
+					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(3);
+					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(3);
+					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(3);
 				}
 
 				//
@@ -117,9 +119,9 @@ public:
 				//
 				y = i + neighbour.at(4).first;
 				x = j + neighbour.at(4).second;
-				valueB += input1.at<cv::Vec3b>(y, x)[0] * filter[4];
-				valueG += input1.at<cv::Vec3b>(y, x)[1] * filter[4];
-				valueR += input1.at<cv::Vec3b>(y, x)[2] * filter[4];
+				valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(4);
+				valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(4);
+				valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(4);
 
 				//
 				// 右の画素値を加算
@@ -127,9 +129,9 @@ public:
 				if (j < (width - 1)) {
 					y = i + neighbour.at(5).first;
 					x = j + neighbour.at(5).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter[5];
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter[5];
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter[5];
+					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(5);
+					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(5);
+					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(5);
 				}
 
 				//
@@ -138,9 +140,9 @@ public:
 				if (i < (height - 1) && j > 0) {
 					y = i + neighbour.at(6).first;
 					x = j + neighbour.at(6).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter[6];
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter[6];
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter[6];
+					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(6);
+					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(6);
+					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(6);
 				}
 
 				//
@@ -149,9 +151,9 @@ public:
 				if (i < (height - 1)) {
 					y = i + neighbour.at(7).first;
 					x = j + neighbour.at(7).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter[7];
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter[7];
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter[7];
+					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(7);
+					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(7);
+					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(7);
 				}
 
 				//
@@ -160,9 +162,9 @@ public:
 				if (i < (height - 1) && j < (width - 1)) {
 					y = i + neighbour.at(8).first;
 					x = j + neighbour.at(8).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter[8];
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter[8];
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter[8];
+					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(8);
+					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(8);
+					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(8);
 				}
 
 				// valueR, valueG, valueB の値を0～255の範囲にする
