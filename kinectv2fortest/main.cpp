@@ -6,7 +6,7 @@
 #include "Gaussian.h"
 #include "ExecuteSpaceFiltering.h"
 
-#define FILTERSIZE 9
+#define FILTERSIZE 25
 
 void doGaussian(cv::Mat &img){
 	Gaussian gaus;

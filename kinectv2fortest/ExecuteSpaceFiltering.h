@@ -6,7 +6,7 @@
 #include <Windows.h>
 #include <time.h>
 
-#define FILTERSIZE 3
+#define FILTERSIZE 5
 
 using namespace std;
 
@@ -41,15 +41,23 @@ public:
 		}
 	}
 
+	void applyFiltering(int y, int x, vector<pair<int, int>> &neighbour, vector<double> &bgr, cv::Mat &image){
+		for (int i = 0; i < neighbour.size(); i++){
+			int dy = y + neighbour.at(i).first;
+			int dx = x + neighbour.at(i).second;
+			if (dy < 0 || dy >= image.rows || dx < 0 || dx >= image.cols) continue;
+			bgr.at(0) += image.at<cv::Vec3b>(dy, dx)[0] * filter.at(i);
+			bgr.at(1) += image.at<cv::Vec3b>(dy, dx)[1] * filter.at(i);
+			bgr.at(2) += image.at<cv::Vec3b>(dy, dx)[2] * filter.at(i);
+		}
+	}
+
 	//
 	// ‹óŠÔƒtƒBƒ‹ƒ^ƒŠƒ“ƒO‚ğ—p‚¢‚½‰æ‘œˆ—‚Ì—á
 	//
 	void executeSpaceFiltering(cv::Mat &input1) {
-		//
-		// ‹óŠÔƒtƒBƒ‹ƒ^ƒŠƒ“ƒO‚ğ“K—p‚·‚é”z—ñ
-		//
-		//double filter[9] = { 0.0625, 0.125, 0.0625, 0.125, 0.25, 0.125, 0.0625, 0.125, 0.0625 };
 		vector<pair<int, int>> neighbour;
+		vector<double> bgr(3, 0.0);
 		image2 = cv::Mat(input1.size(), input1.type(), cvScalarAll(255));
 		int width = input1.cols;
 		int height = input1.rows;
@@ -67,119 +75,22 @@ public:
 			// Še‰æ‘f‚²‚Æ‚É
 			//
 			for (j = 0; j < width; j++) {
-				double valueR = 0.0, valueG = 0.0, valueB = 0.0;
+				bgr = { 0.0, 0.0, 0.0 };
 				int y = i;
 				int x = j;
-				//
-				// ¶ã‚Ì‰æ‘f’l‚ğ‰ÁZ
-				//
-				if (i > 0 && j > 0) {
-					y = i + neighbour.at(0).first;
-					x = j + neighbour.at(0).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(0);
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(0);
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(0);
-				}
-
-				//
-				// ã‚Ì‰æ‘f’l‚ğ‰ÁZ
-				//
-				if (i > 0) {
-					y = i + neighbour.at(1).first;
-					x = j + neighbour.at(1).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(1);
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(1);
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(1);
-				}
-
-				//
-				// ‰Eã‚Ì‰æ‘f’l‚ğ‰ÁZ
-				//
-				if (i > 0 && j < (width - 1)) {
-					y = i + neighbour.at(2).first;
-					x = j + neighbour.at(2).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(2);
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(2);
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(2);
-				}
-
-				//
-				// ¶‚Ì‰æ‘f’l‚ğ‰ÁZ
-				//
-				if (j > 0) {
-					y = i + neighbour.at(3).first;
-					x = j + neighbour.at(3).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(3);
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(3);
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(3);
-				}
-
-				//
-				// “¯ˆêêŠ‚Ì‚Ì‰æ‘f’l‚ğ‰ÁZ
-				//
-				y = i + neighbour.at(4).first;
-				x = j + neighbour.at(4).second;
-				valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(4);
-				valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(4);
-				valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(4);
-
-				//
-				// ‰E‚Ì‰æ‘f’l‚ğ‰ÁZ
-				//
-				if (j < (width - 1)) {
-					y = i + neighbour.at(5).first;
-					x = j + neighbour.at(5).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(5);
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(5);
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(5);
-				}
-
-				//
-				// ¶‰º‚Ì‰æ‘f‚Æ‚Ì”äŠr
-				//
-				if (i < (height - 1) && j > 0) {
-					y = i + neighbour.at(6).first;
-					x = j + neighbour.at(6).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(6);
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(6);
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(6);
-				}
-
-				//
-				// ‰º‚Ì‰æ‘f‚Æ‚Ì”äŠr
-				//
-				if (i < (height - 1)) {
-					y = i + neighbour.at(7).first;
-					x = j + neighbour.at(7).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(7);
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(7);
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(7);
-				}
-
-				//
-				// ‰E‰º‚Ì‰æ‘f‚Æ‚Ì”äŠr
-				//
-				if (i < (height - 1) && j < (width - 1)) {
-					y = i + neighbour.at(8).first;
-					x = j + neighbour.at(8).second;
-					valueB += input1.at<cv::Vec3b>(y, x)[0] * filter.at(8);
-					valueG += input1.at<cv::Vec3b>(y, x)[1] * filter.at(8);
-					valueR += input1.at<cv::Vec3b>(y, x)[2] * filter.at(8);
-				}
+				applyFiltering(y, x, neighbour, bgr, input1);
 
 				// valueR, valueG, valueB ‚Ì’l‚ğ0`255‚Ì”ÍˆÍ‚É‚·‚é
-				if (valueR < 0.0) valueR = 0.0;
-				if (valueR > 255.0) valueR = 255.0;
-				if (valueG < 0.0) valueG = 0.0;
-				if (valueG > 255.0) valueG = 255.0;
-				if (valueB < 0.0) valueB = 0.0;
-				if (valueB > 255.0) valueB = 255.0;
+				if (bgr.at(2) < 0.0) bgr.at(2) = 0.0;
+				if (bgr.at(2) > 255.0) bgr.at(2) = 255.0;
+				if (bgr.at(1) < 0.0) bgr.at(1) = 0.0;
+				if (bgr.at(1) > 255.0) bgr.at(1) = 255.0;
+				if (bgr.at(0) < 0.0) bgr.at(0) = 0.0;
+				if (bgr.at(0) > 255.0) bgr.at(0) = 255.0;
 
-				y = i;
-				x = j;
-				image2.at<cv::Vec3b>(y, x)[0] = valueB;
-				image2.at<cv::Vec3b>(y, x)[1] = valueG;
-				image2.at<cv::Vec3b>(y, x)[2] = valueR;
+				image2.at<cv::Vec3b>(y, x)[0] = bgr.at(0);
+				image2.at<cv::Vec3b>(y, x)[1] = bgr.at(1);
+				image2.at<cv::Vec3b>(y, x)[2] = bgr.at(2);
 			}
 		}
 	}
