@@ -5,8 +5,7 @@
 #include <sstream>
 #include <Windows.h>
 #include <time.h>
-
-#define FILTERSIZE 5
+#include <math.h>
 
 using namespace std;
 
@@ -20,6 +19,7 @@ public:
 		for (int i = 0; i < filter_size; i++)
 			filter.push_back(filter_value);
 	}
+	
 	~ExecuteSpaceFiltering(){}
 	cv::Mat image2;
 
@@ -52,29 +52,47 @@ public:
 		}
 	}
 
+	void executeSpaceFilteringYX(int y, int x, cv::Mat &input1){
+		vector<pair<int, int>> neighbour;
+		vector<double> bgr(3, 0.0);
+		int width = input1.cols;
+		int height = input1.rows;
+		createNeighbour(sqrt(filter.size()), neighbour);
+		applyFiltering(y, x, neighbour, bgr, input1);
+		
+		// valueR, valueG, valueB の値を0～255の範囲にする
+		if (bgr.at(2) < 0.0) bgr.at(2) = 0.0;
+		if (bgr.at(2) > 255.0) bgr.at(2) = 255.0;
+		if (bgr.at(1) < 0.0) bgr.at(1) = 0.0;
+		if (bgr.at(1) > 255.0) bgr.at(1) = 255.0;
+		if (bgr.at(0) < 0.0) bgr.at(0) = 0.0;
+		if (bgr.at(0) > 255.0) bgr.at(0) = 255.0;
+
+		input1.at<cv::Vec3b>(y, x)[0] = bgr.at(0);
+		input1.at<cv::Vec3b>(y, x)[1] = bgr.at(1);
+		input1.at<cv::Vec3b>(y, x)[2] = bgr.at(2);
+	}
+
 	//
 	// 空間フィルタリングを用いた画像処理の例
 	//
-	void executeSpaceFiltering(cv::Mat &input1) {
+	void executeSpaceFilteringAll(cv::Mat &input1) {
 		vector<pair<int, int>> neighbour;
 		vector<double> bgr(3, 0.0);
 		image2 = cv::Mat(input1.size(), input1.type(), cvScalarAll(255));
 		int width = input1.cols;
 		int height = input1.rows;
-
-		int i, j, n1, n2;
-
-		createNeighbour(FILTERSIZE, neighbour);
+		createNeighbour(sqrt(filter.size()), neighbour);
 		
 		//
 		// 各スキャンラインごとに
 		//
-		for (i = 0; i < height; i++) {
+		for (int i = 0; i < height; i++) {
 
 			//
 			// 各画素ごとに
 			//
-			for (j = 0; j < width; j++) {
+			for (int j = 0; j < width; j++) {
 				bgr = { 0.0, 0.0, 0.0 };
 				int y = i;
 				int x = j;

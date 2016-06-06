@@ -8,22 +8,9 @@
 
 #define FILTERSIZE 25
 
-void doGaussian(cv::Mat &img){
-	Gaussian gaus;
-	gaus.createKernel(3);
-	cv::Mat img_cp;
-	//img.convertTo(img_cp, CV_32FC3, 1.0 / 255);
-	//cv::imshow("lena CV32FC3 image", img_cp);
-	for (int y = 0; y < img.rows; y+=3)
-		for (int x = 0; x < img.cols; x+=3){
-			//if (!gaus.checkMat(img, y, x)) continue;
-			gaus.GaussianBlur(img, y, x);
-		}
-}
-
 void doExecuteSpaceFiltering(cv::Mat &img){
 		ExecuteSpaceFiltering spaceFilter(FILTERSIZE);
-		spaceFilter.executeSpaceFiltering(img);
+		spaceFilter.executeSpaceFilteringAll(img);
 		cv::imshow("Space Filtering result", spaceFilter.image2);
 }
 
