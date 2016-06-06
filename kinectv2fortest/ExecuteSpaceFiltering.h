@@ -34,11 +34,29 @@ public:
 		size--;
 		size /= 2;
 
+		float sigma = 2.0;
+		float sum = 0;
 		for (int y = -size; y <= size; y++) {
 			for (int x = -size; x <= size; x++) {
+				double gf = GaussianFunc(x, y, sigma);
+				filter.push_back(gf);
 				neighbour.push_back(make_pair(y, x));
+				sum += gf;
 			}
 		}
+		for (int i = 0; i < filter.size(); i++) {
+			filter.at(i) /= sum;
+		}
+
+	}
+	
+	double GaussianFunc(int y, int x, float sigma) {
+		float pi = (float)M_PI;
+		float sigma2 = sigma * sigma;
+		double gauss_const = 1.0 / (2.0 * pi * sigma * sigma);
+		double f = gauss_const * exp(-(x * x + y * y) / (2.0 * sigma * sigma));
+		return f;
+
 	}
 
 	void applyFiltering(int y, int x, vector<pair<int, int>> &neighbour, vector<double> &bgr, cv::Mat &image){
